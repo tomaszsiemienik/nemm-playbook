@@ -1,0 +1,17 @@
+---
+- name: Install language pack
+  apt: pkg=language-pack-en state=installed
+
+- name: Setup application
+  git: repo=https://github.com/tomaszsiemienik/nemm.git dest=/usr/share/nginx/html/nemm
+
+- name: Install dependencies
+  npm: path=/usr/share/nginx/html/nemm
+
+- name: PM2 | Install PM2
+  sudo: yes
+  npm: name=pm2 global=yes
+
+- name: start application with pm2
+  command: pm2 start -f /usr/share/nginx/html/nemm/app.js
+
