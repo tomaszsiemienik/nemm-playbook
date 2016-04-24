@@ -1,1 +1,1 @@
-- src: git@github.com:tomaszsiemienik/nodejs.git
+- src: git+git@github.com:tomaszsiemienik/nodejs.git
